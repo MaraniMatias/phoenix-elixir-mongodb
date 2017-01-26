@@ -41,11 +41,14 @@ Abrimos el archivo `mix.exs` en la raíz de nuestra app `myAppWeb`.
       {:phoenix_expug, "~> 0.0.3"}]
 end
 ```
-Ahora a descargar/instalar las dependencias
+Ahora a descargar/instalar las dependencias.
 ```sh
 $ mix deps.get
 ```
-
+Si usaste la opción de NodeJS también deberás correr.
+```
+$ npm install
+```
 
 # Bibliografía
 * [Phoenix Framework](http://www.phoenixframework.org)
