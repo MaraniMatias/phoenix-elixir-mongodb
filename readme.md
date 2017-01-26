@@ -30,16 +30,16 @@ Antes vemos a actualizar las versiones de las dependencias según [Hex](https://
 Abrimos el archivo `mix.exs` en la raíz de nuestra app `myAppWeb`.
 ```elixir
   defp deps do
-    [{:phoenix, "~> 1.2.1"},
-     {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_ecto, "~> 3.2.1"},
-     {:mongodb_ecto, ">= 0.1.5"},
-     {:phoenix_html, "~> 2.9.2"},
-     {:phoenix_live_reload, "~> 1.0.7", only: :dev},
-     {:gettext, "~> 0.13.0"},
-     {:cowboy, "~> 1.0.4"},
-     {:phoenix_expug, "~> 0.0.3"}]
-  end
+    [ {:phoenix, "~> 1.2.1"},
+      {:phoenix_pubsub, "~> 1.0"},
+      {:phoenix_ecto, "~> 1.2"}, # Actual v3.2.1 pero no es compatible con  mongodb_ecto v0.1.5
+      {:mongodb_ecto, "~> 0.1.5"},
+      {:phoenix_html, "~> 2.9.2"},
+      {:phoenix_live_reload, "~> 1.0.7", only: :dev},
+      {:gettext, "~> 0.13.0"},
+      {:cowboy, "~> 1.0.4"},
+      {:phoenix_expug, "~> 0.0.3"}]
+end
 ```
 Ahora a descargar/instalar las dependencias
 ```sh
