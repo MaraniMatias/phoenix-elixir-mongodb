@@ -33,7 +33,7 @@ Abrimos el archivo `mix.exs` en la raíz de nuestra app `myAppWeb`.
     [ {:phoenix, "~> 1.2.1"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 1.2"}, # Actual v3.2.1 pero no es compatible con  mongodb_ecto v0.1.5
-      {:mongodb_ecto, "~> 0.1.5"},
+      {:mongodb_ecto, "~> 0.1"},
       {:phoenix_html, "~> 2.9.2"},
       {:phoenix_live_reload, "~> 1.0.7", only: :dev},
       {:gettext, "~> 0.13.0"},
@@ -50,5 +50,30 @@ Si usaste la opción de NodeJS también deberás correr.
 $ npm install
 ```
 
+## Configurando mongodb_ecto
+En el archivo `config/config.exs` agregamos la siguiente lineas
+```elixir
+# General application configuration
+  config :myAppWeb,
+  ecto_repos: [MyAppWeb.Repo]
+
+  config :myAppWeb, Repo,
+    database: "ecto_myAppWeb",
+    username: "mongodb",
+    # password: "mongosb", # descomentar en caso de tener clave
+    hostname: "localhost"
+```
+
+## Agregando repo
+En `lib/myAppWeb/repo.ex` agregamos
+```elixir
+defmodule MyApp.Repo do
+  use Ecto.Repo,
+  otp_app: :my_app,
+  adapter: Mongo.Ecto
+end
+```
+
 # Bibliografía
 * [Phoenix Framework](http://www.phoenixframework.org)
+* [mongodb_ecto](https://github.com/michalmuskala/mongodb_ecto)
