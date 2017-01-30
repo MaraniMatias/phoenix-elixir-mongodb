@@ -1,7 +1,7 @@
 # Introducción
 
 # Requisitos
-Tener instalado Elixir and Erlang, [Guia de instalacion](http://elixir-lang.org/install.html) o [aqui](https://github.com/MaraniMatias/elixir-hola-mundo).
+Tener instalado Elixir and Erlang, [Guia de instalacion](http://elixir-lang.org/install.html) o [con el script de bash](https://github.com/MaraniMatias/elixir-hola-mundo).
 Opcional tener instalado [NodeJS](https://nodejs.org/).
 
 Luego en la terminal
@@ -28,6 +28,7 @@ Hora nos pide instalar dependencias.
 Antes vemos a actualizar las versiones de las dependencias según [Hex](https://hex.pm/).
 
 Abrimos el archivo `mix.exs` en la raíz de nuestra app `myAppWeb`.
+Puedes ver si `mongo_ecto` es compatible con `ecto2` en [Repo: elixir_ecto](https://github.com/elixir-ecto/ecto#usage).
 ```elixir
   defp deps do
     [ {:phoenix, "~> 1.2.1"},
@@ -59,7 +60,7 @@ En el archivo `config/config.exs` agregamos la siguiente lineas
 
   config :myAppWeb, Repo,
     database: "ecto_myAppWeb",
-    username: "mongodb",
+    # username: "mongodb", # descomentar en caso de tener clave
     # password: "mongosb", # descomentar en caso de tener clave
     hostname: "localhost"
 ```
